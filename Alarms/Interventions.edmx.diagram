@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be6348eb65f84b88a5da28f8f5d9a4d9" Name="Diagram1">
+        <EntityTypeShape EntityType="InterventionsModel.ActivityTypes" Width="1.5" PointX="0.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InterventionsModel.ServiceOrder" Width="1.5" PointX="4.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InterventionsModel.AlarmActivities" Width="1.5" PointX="5.75" PointY="0.625" />
+        <EntityTypeShape EntityType="InterventionsModel.Machines" Width="1.5" PointX="2.5" PointY="3.375" />
+        <EntityTypeShape EntityType="InterventionsModel.AlarmLevels" Width="1.5" PointX="5.75" PointY="6.25" />
+        <EntityTypeShape EntityType="InterventionsModel.AssignedCosts" Width="1.5" PointX="0.5" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.CostCategories" Width="1.5" PointX="5.125" PointY="21.125" />
+        <EntityTypeShape EntityType="InterventionsModel.CostDetails" Width="1.5" PointX="2.9287846586335382" PointY="19.738367134583353" />
+        <EntityTypeShape EntityType="InterventionsModel.Country" Width="1.5" PointX="8.625" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.Currency" Width="1.5" PointX="5.75" PointY="4.5" />
+        <EntityTypeShape EntityType="InterventionsModel.PaymentMethods" Width="1.5" PointX="7" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.DayDetails" Width="1.5" PointX="8.625" PointY="16.25" />
+        <EntityTypeShape EntityType="InterventionsModel.TravelLocations" Width="1.5" PointX="5.375" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.HourGroups" Width="1.5" PointX="6.875" PointY="16.25" />
+        <EntityTypeShape EntityType="InterventionsModel.Invoicing" Width="1.5" PointX="3.5" PointY="16.25" />
+        <EntityTypeShape EntityType="InterventionsModel.ServiceorderCalculateDetails" Width="1.5" PointX="5.25" PointY="16.25" />
+        <EntityTypeShape EntityType="InterventionsModel.TaskGroups" Width="1.5" PointX="2.5" PointY="6.875" />
+        <EntityTypeShape EntityType="InterventionsModel.Traveling" Width="1.5" PointX="3.75" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.ServiceReport" Width="1.5" PointX="0.875" PointY="4.875" />
+        <EntityTypeShape EntityType="InterventionsModel.TypeCode" Width="1.5" PointX="2.125" PointY="24.75" />
+        <EntityTypeShape EntityType="InterventionsModel.AlarmDepartmentMails" Width="1.5" PointX="8.5" PointY="21.125" />
+        <EntityTypeShape EntityType="InterventionsModel.AlarmSalesMail" Width="1.5" PointX="6.875" PointY="21.125" />
+        <EntityTypeShape EntityType="InterventionsModel.AlarmHistory" Width="1.5" PointX="1.7651855134243077" PointY="23.019550319304479" />
+        <EntityTypeShape EntityType="InterventionsModel.Alarms" Width="1.5" PointX="3.7098341843624758" PointY="5.5122150059380637" />
+        <EntityTypeShape EntityType="InterventionsModel.IndividualAlarmMails" Width="1.5" PointX="3.1753292880837476" PointY="17.255068742323232" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERPLNDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ERPLNDataModelStoreContainer">
+          <EntitySet Name="ERPLN_ServiceOrders" EntityType="ERPLNDataModel.Store.ERPLN_ServiceOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Srv_Calls" EntityType="ERPLNDataModel.Store.Srv_Calls" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Srv_ServiceorderRegels" EntityType="ERPLNDataModel.Store.Srv_ServiceorderRegels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Srv_ServiceOrders" EntityType="ERPLNDataModel.Store.Srv_ServiceOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TypeCode" EntityType="ERPLNDataModel.Store.TypeCode" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ERPLN_ServiceOrders">
+          <Key>
+            <PropertyRef Name="Serviceorder" />
+          </Key>
+          <Property Name="Serviceorder" Type="int" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerReference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment1" Type="nvarchar" MaxLength="30" />
+          <Property Name="Comment2" Type="nvarchar" MaxLength="30" />
+          <Property Name="Comment3" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServiceNumber" Type="int" />
+          <Property Name="ServiceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="orderDate" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="TypeDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coverage" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoverageDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeadTime" Type="date" />
+          <Property Name="Pricelist" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentConditions" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="ShippingID" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShippingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShippingConditions" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShippingConditionsDetails" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="3" />
+          <Property Name="ImportDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Srv_Calls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CallNumber" Type="int" Nullable="false" />
+          <Property Name="ParentCall" Type="int" />
+          <Property Name="ChildCall" Type="int" />
+          <Property Name="ServiceOrder" Type="int" />
+          <Property Name="SalesId" Type="nvarchar" MaxLength="9" />
+          <Property Name="SalesName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerServiceName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ServiceDepartment" Type="nvarchar" MaxLength="20" />
+          <Property Name="SerianNumberMachine" Type="nvarchar" MaxLength="20" />
+          <Property Name="DetailMachine" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="20" />
+          <Property Name="Warranty" Type="date" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="20" />
+          <Property Name="BadFix" Type="nvarchar" MaxLength="20" />
+          <Property Name="Country" Type="nvarchar" MaxLength="3" />
+          <Property Name="Problem" Type="nvarchar(max)" />
+          <Property Name="Solution" Type="nvarchar(max)" />
+          <Property Name="ImportedDateTime" Type="datetime" />
+          <Property Name="SupportAfdeling" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supportmedewerker" Type="nvarchar" MaxLength="50" />
+          <Property Name="NaamCallmelder" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Srv_ServiceorderRegels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceOrder" Type="int" Nullable="false" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="10" />
+          <Property Name="Regelnummer" Type="int" />
+          <Property Name="OrderRegelnummer" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActiviteitRegelnummer" Type="int" />
+          <Property Name="Kosttype" Type="nvarchar" MaxLength="10" />
+          <Property Name="Artikel" Type="nvarchar" MaxLength="40" />
+          <Property Name="ArtikelOmschrijving" Type="nvarchar" MaxLength="30" />
+          <Property Name="Aantal" Type="decimal" Scale="3" />
+          <Property Name="KostComponent" Type="nvarchar" MaxLength="9" />
+          <Property Name="KostComponentOmschrijving" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlannedLeadTime" Type="date" />
+          <Property Name="Kostprijs" Type="decimal" Scale="3" />
+          <Property Name="SoortLevering" Type="nvarchar" MaxLength="50" />
+          <Property Name="Magazijn" Type="nvarchar" MaxLength="6" />
+          <Property Name="LaatsteHoeveelheid" Type="decimal" Scale="3" />
+          <Property Name="NagecalculeerdeHoeveelheid" Type="decimal" Scale="3" />
+          <Property Name="TotaleHoeveelheid" Type="decimal" Scale="3" />
+          <Property Name="NaleveringHoeveelheid" Type="decimal" Scale="3" />
+          <Property Name="WerkelijkeLeadime" Type="date" />
+          <Property Name="ServiceOrderDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UurLoonSoort" Type="nvarchar" MaxLength="20" />
+          <Property Name="TijdsHoeveelheid" Type="decimal" Scale="3" />
+          <Property Name="ReisSoort" Type="nvarchar" MaxLength="20" />
+          <Property Name="NacalculatieFrequentie" Type="int" />
+          <Property Name="TotaleVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="TotaleKost" Type="decimal" Scale="3" />
+          <Property Name="ReparatieGarantieVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="ReparatieGarantieKostprijs" Type="decimal" Scale="3" />
+          <Property Name="ContractVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="ContractKostprijs" Type="decimal" Scale="3" />
+          <Property Name="SrvOffVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="SrvOffKostprijs" Type="decimal" Scale="3" />
+          <Property Name="FcoVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="FcoKostprijs" Type="decimal" Scale="3" />
+          <Property Name="OverigeVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="OverigeKostprijs" Type="decimal" Scale="3" />
+          <Property Name="FactuurVerkoopprijs" Type="decimal" Scale="3" />
+          <Property Name="FactuurKostprijs" Type="decimal" Scale="3" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="MutatieDatum" Type="date" />
+          <Property Name="FactuurNummer" Type="nvarchar" MaxLength="10" />
+          <Property Name="Mutatiesoort" Type="nvarchar" MaxLength="3" />
+          <Property Name="FactuurDatum" Type="date" />
+          <Property Name="Korting" Type="int" />
+          <Property Name="KortingsBedrag" Type="decimal" Scale="3" />
+          <Property Name="FactuurBedrag" Type="decimal" Scale="3" />
+          <Property Name="Land" Type="nvarchar" MaxLength="3" />
+          <Property Name="DetailBTWCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="ImportedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Srv_ServiceOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Serviceorder" Type="int" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerReference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment1" Type="nvarchar" MaxLength="30" />
+          <Property Name="Comment2" Type="nvarchar" MaxLength="30" />
+          <Property Name="Comment3" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServiceNumber" Type="int" />
+          <Property Name="ServiceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="orderDate" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="TypeDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coverage" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoverageDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeadTime" Type="date" />
+          <Property Name="Pricelist" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentConditions" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="ShippingID" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShippingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShippingConditions" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShippingConditionsDetails" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="3" />
+          <Property Name="ImportDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TypeCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="TypeOmschrijving" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingF" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingD" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingI" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dekking" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodeDekking" Type="int" />
+          <Property Name="Groep" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERPLNDataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ERPLNDataEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Srv_ServiceOrders" EntityType="ERPLNDataModel.Srv_ServiceOrders" />
+          <EntitySet Name="Srv_Calls" EntityType="ERPLNDataModel.Srv_Calls" />
+          <EntitySet Name="ERPLN_ServiceOrders" EntityType="ERPLNDataModel.ERPLN_ServiceOrders" />
+          <EntitySet Name="Srv_ServiceorderRegels" EntityType="ERPLNDataModel.Srv_ServiceorderRegels" />
+          <EntitySet Name="TypeCode" EntityType="ERPLNDataModel.TypeCode" />
+        </EntityContainer>
+        <EntityType Name="Srv_ServiceOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Serviceorder" Type="Int32" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerReference" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Comment1" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Comment2" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Comment3" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ServiceNumber" Type="Int32" />
+          <Property Name="ServiceName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="orderDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="TypeDetail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Coverage" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CoverageDetail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LeadTime" Type="DateTime" Precision="0" />
+          <Property Name="Pricelist" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PaymentConditions" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Currency" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingConditions" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingConditionsDetails" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="ImportDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Srv_Calls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CallNumber" Nullable="false" />
+          <Property Type="Int32" Name="ParentCall" />
+          <Property Type="Int32" Name="ChildCall" />
+          <Property Type="Int32" Name="ServiceOrder" />
+          <Property Type="String" Name="SalesId" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SalesName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerServiceName" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ServiceDepartment" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SerianNumberMachine" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailMachine" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Warranty" Precision="0" />
+          <Property Type="String" Name="Priority" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BadFix" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Problem" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Solution" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ImportedDateTime" Precision="3" />
+          <Property Type="String" Name="SupportAfdeling" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Supportmedewerker" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NaamCallmelder" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ERPLN_ServiceOrders">
+          <Key>
+            <PropertyRef Name="Serviceorder" />
+          </Key>
+          <Property Type="Int32" Name="Serviceorder" Nullable="false" />
+          <Property Type="String" Name="Department" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerID" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerReference" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment1" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment2" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment3" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ServiceNumber" />
+          <Property Type="String" Name="ServiceName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="orderDate" Precision="0" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeDetail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Coverage" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CoverageDetail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LeadTime" Precision="0" />
+          <Property Type="String" Name="Pricelist" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PaymentConditions" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Currency" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShippingID" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShippingName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShippingConditions" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShippingConditionsDetails" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ImportDateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Srv_ServiceorderRegels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ServiceOrder" Nullable="false" />
+          <Property Type="String" Name="Origin" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Regelnummer" />
+          <Property Type="String" Name="OrderRegelnummer" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ActiviteitRegelnummer" />
+          <Property Type="String" Name="Kosttype" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Artikel" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ArtikelOmschrijving" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Aantal" Precision="18" Scale="3" />
+          <Property Type="String" Name="KostComponent" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KostComponentOmschrijving" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PlannedLeadTime" Precision="0" />
+          <Property Type="Decimal" Name="Kostprijs" Precision="18" Scale="3" />
+          <Property Type="String" Name="SoortLevering" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Magazijn" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="LaatsteHoeveelheid" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="NagecalculeerdeHoeveelheid" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="TotaleHoeveelheid" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="NaleveringHoeveelheid" Precision="18" Scale="3" />
+          <Property Type="DateTime" Name="WerkelijkeLeadime" Precision="0" />
+          <Property Type="String" Name="ServiceOrderDetail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UurLoonSoort" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="TijdsHoeveelheid" Precision="18" Scale="3" />
+          <Property Type="String" Name="ReisSoort" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="NacalculatieFrequentie" />
+          <Property Type="Decimal" Name="TotaleVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="TotaleKost" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="ReparatieGarantieVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="ReparatieGarantieKostprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="ContractVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="ContractKostprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="SrvOffVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="SrvOffKostprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FcoVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FcoKostprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="OverigeVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="OverigeKostprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FactuurVerkoopprijs" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FactuurKostprijs" Precision="18" Scale="3" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="MutatieDatum" Precision="0" />
+          <Property Type="String" Name="FactuurNummer" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mutatiesoort" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FactuurDatum" Precision="0" />
+          <Property Type="Int32" Name="Korting" />
+          <Property Type="Decimal" Name="KortingsBedrag" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="FactuurBedrag" Precision="18" Scale="3" />
+          <Property Type="String" Name="Land" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailBTWCode" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ImportedDateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TypeCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijving" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingF" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingD" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingI" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dekking" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CodeDekking" />
+          <Property Type="String" Name="Groep" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERPLNDataModelStoreContainer" CdmEntityContainer="ERPLNDataEntities">
+          <EntitySetMapping Name="Srv_ServiceOrders">
+            <EntityTypeMapping TypeName="ERPLNDataModel.Srv_ServiceOrders">
+              <MappingFragment StoreEntitySet="Srv_ServiceOrders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Serviceorder" ColumnName="Serviceorder" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerReference" ColumnName="CustomerReference" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+                <ScalarProperty Name="Comment2" ColumnName="Comment2" />
+                <ScalarProperty Name="Comment3" ColumnName="Comment3" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TypeDetail" ColumnName="TypeDetail" />
+                <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+                <ScalarProperty Name="CoverageDetail" ColumnName="CoverageDetail" />
+                <ScalarProperty Name="LeadTime" ColumnName="LeadTime" />
+                <ScalarProperty Name="Pricelist" ColumnName="Pricelist" />
+                <ScalarProperty Name="PaymentConditions" ColumnName="PaymentConditions" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+                <ScalarProperty Name="ShippingName" ColumnName="ShippingName" />
+                <ScalarProperty Name="ShippingConditions" ColumnName="ShippingConditions" />
+                <ScalarProperty Name="ShippingConditionsDetails" ColumnName="ShippingConditionsDetails" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ImportDateTime" ColumnName="ImportDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Srv_Calls">
+            <EntityTypeMapping TypeName="ERPLNDataModel.Srv_Calls">
+              <MappingFragment StoreEntitySet="Srv_Calls">
+                <ScalarProperty Name="NaamCallmelder" ColumnName="NaamCallmelder" />
+                <ScalarProperty Name="Supportmedewerker" ColumnName="Supportmedewerker" />
+                <ScalarProperty Name="SupportAfdeling" ColumnName="SupportAfdeling" />
+                <ScalarProperty Name="ImportedDateTime" ColumnName="ImportedDateTime" />
+                <ScalarProperty Name="Solution" ColumnName="Solution" />
+                <ScalarProperty Name="Problem" ColumnName="Problem" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="BadFix" ColumnName="BadFix" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="DetailMachine" ColumnName="DetailMachine" />
+                <ScalarProperty Name="SerianNumberMachine" ColumnName="SerianNumberMachine" />
+                <ScalarProperty Name="ServiceDepartment" ColumnName="ServiceDepartment" />
+                <ScalarProperty Name="CustomerServiceName" ColumnName="CustomerServiceName" />
+                <ScalarProperty Name="SalesName" ColumnName="SalesName" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="ServiceOrder" ColumnName="ServiceOrder" />
+                <ScalarProperty Name="ChildCall" ColumnName="ChildCall" />
+                <ScalarProperty Name="ParentCall" ColumnName="ParentCall" />
+                <ScalarProperty Name="CallNumber" ColumnName="CallNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ERPLN_ServiceOrders">
+            <EntityTypeMapping TypeName="ERPLNDataModel.ERPLN_ServiceOrders">
+              <MappingFragment StoreEntitySet="ERPLN_ServiceOrders">
+                <ScalarProperty Name="ImportDateTime" ColumnName="ImportDateTime" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ShippingConditionsDetails" ColumnName="ShippingConditionsDetails" />
+                <ScalarProperty Name="ShippingConditions" ColumnName="ShippingConditions" />
+                <ScalarProperty Name="ShippingName" ColumnName="ShippingName" />
+                <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="PaymentConditions" ColumnName="PaymentConditions" />
+                <ScalarProperty Name="Pricelist" ColumnName="Pricelist" />
+                <ScalarProperty Name="LeadTime" ColumnName="LeadTime" />
+                <ScalarProperty Name="CoverageDetail" ColumnName="CoverageDetail" />
+                <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+                <ScalarProperty Name="TypeDetail" ColumnName="TypeDetail" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="Comment3" ColumnName="Comment3" />
+                <ScalarProperty Name="Comment2" ColumnName="Comment2" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+                <ScalarProperty Name="CustomerReference" ColumnName="CustomerReference" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Serviceorder" ColumnName="Serviceorder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Srv_ServiceorderRegels">
+            <EntityTypeMapping TypeName="ERPLNDataModel.Srv_ServiceorderRegels">
+              <MappingFragment StoreEntitySet="Srv_ServiceorderRegels">
+                <ScalarProperty Name="ImportedDateTime" ColumnName="ImportedDateTime" />
+                <ScalarProperty Name="DetailBTWCode" ColumnName="DetailBTWCode" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="FactuurBedrag" ColumnName="FactuurBedrag" />
+                <ScalarProperty Name="KortingsBedrag" ColumnName="KortingsBedrag" />
+                <ScalarProperty Name="Korting" ColumnName="Korting" />
+                <ScalarProperty Name="FactuurDatum" ColumnName="FactuurDatum" />
+                <ScalarProperty Name="Mutatiesoort" ColumnName="Mutatiesoort" />
+                <ScalarProperty Name="FactuurNummer" ColumnName="FactuurNummer" />
+                <ScalarProperty Name="MutatieDatum" ColumnName="MutatieDatum" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FactuurKostprijs" ColumnName="FactuurKostprijs" />
+                <ScalarProperty Name="FactuurVerkoopprijs" ColumnName="FactuurVerkoopprijs" />
+                <ScalarProperty Name="OverigeKostprijs" ColumnName="OverigeKostprijs" />
+                <ScalarProperty Name="OverigeVerkoopprijs" ColumnName="OverigeVerkoopprijs" />
+                <ScalarProperty Name="FcoKostprijs" ColumnName="FcoKostprijs" />
+                <ScalarProperty Name="FcoVerkoopprijs" ColumnName="FcoVerkoopprijs" />
+                <ScalarProperty Name="SrvOffKostprijs" ColumnName="SrvOffKostprijs" />
+                <ScalarProperty Name="SrvOffVerkoopprijs" ColumnName="SrvOffVerkoopprijs" />
+                <ScalarProperty Name="ContractKostprijs" ColumnName="ContractKostprijs" />
+                <ScalarProperty Name="ContractVerkoopprijs" ColumnName="ContractVerkoopprijs" />
+                <ScalarProperty Name="ReparatieGarantieKostprijs" ColumnName="ReparatieGarantieKostprijs" />
+                <ScalarProperty Name="ReparatieGarantieVerkoopprijs" ColumnName="ReparatieGarantieVerkoopprijs" />
+                <ScalarProperty Name="TotaleKost" ColumnName="TotaleKost" />
+                <ScalarProperty Name="TotaleVerkoopprijs" ColumnName="TotaleVerkoopprijs" />
+                <ScalarProperty Name="NacalculatieFrequentie" ColumnName="NacalculatieFrequentie" />
+                <ScalarProperty Name="ReisSoort" ColumnName="ReisSoort" />
+                <ScalarProperty Name="TijdsHoeveelheid" ColumnName="TijdsHoeveelheid" />
+                <ScalarProperty Name="UurLoonSoort" ColumnName="UurLoonSoort" />
+                <ScalarProperty Name="ServiceOrderDetail" ColumnName="ServiceOrderDetail" />
+                <ScalarProperty Name="WerkelijkeLeadime" ColumnName="WerkelijkeLeadime" />
+                <ScalarProperty Name="NaleveringHoeveelheid" ColumnName="NaleveringHoeveelheid" />
+                <ScalarProperty Name="TotaleHoeveelheid" ColumnName="TotaleHoeveelheid" />
+                <ScalarProperty Name="NagecalculeerdeHoeveelheid" ColumnName="NagecalculeerdeHoeveelheid" />
+                <ScalarProperty Name="LaatsteHoeveelheid" ColumnName="LaatsteHoeveelheid" />
+                <ScalarProperty Name="Magazijn" ColumnName="Magazijn" />
+                <ScalarProperty Name="SoortLevering" ColumnName="SoortLevering" />
+                <ScalarProperty Name="Kostprijs" ColumnName="Kostprijs" />
+                <ScalarProperty Name="PlannedLeadTime" ColumnName="PlannedLeadTime" />
+                <ScalarProperty Name="KostComponentOmschrijving" ColumnName="KostComponentOmschrijving" />
+                <ScalarProperty Name="KostComponent" ColumnName="KostComponent" />
+                <ScalarProperty Name="Aantal" ColumnName="Aantal" />
+                <ScalarProperty Name="ArtikelOmschrijving" ColumnName="ArtikelOmschrijving" />
+                <ScalarProperty Name="Artikel" ColumnName="Artikel" />
+                <ScalarProperty Name="Kosttype" ColumnName="Kosttype" />
+                <ScalarProperty Name="ActiviteitRegelnummer" ColumnName="ActiviteitRegelnummer" />
+                <ScalarProperty Name="OrderRegelnummer" ColumnName="OrderRegelnummer" />
+                <ScalarProperty Name="Regelnummer" ColumnName="Regelnummer" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="ServiceOrder" ColumnName="ServiceOrder" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeCode">
+            <EntityTypeMapping TypeName="ERPLNDataModel.TypeCode">
+              <MappingFragment StoreEntitySet="TypeCode">
+                <ScalarProperty Name="Groep" ColumnName="Groep" />
+                <ScalarProperty Name="CodeDekking" ColumnName="CodeDekking" />
+                <ScalarProperty Name="Dekking" ColumnName="Dekking" />
+                <ScalarProperty Name="TypeOmschrijvingI" ColumnName="TypeOmschrijvingI" />
+                <ScalarProperty Name="TypeOmschrijvingD" ColumnName="TypeOmschrijvingD" />
+                <ScalarProperty Name="TypeOmschrijvingF" ColumnName="TypeOmschrijvingF" />
+                <ScalarProperty Name="TypeOmschrijving" ColumnName="TypeOmschrijving" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

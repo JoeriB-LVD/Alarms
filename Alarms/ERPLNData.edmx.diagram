@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fac9c6e319bc4246b6d931a472decf28" Name="Diagram1">
+        <EntityTypeShape EntityType="ERPLNDataModel.Srv_ServiceOrders" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPLNDataModel.Srv_Calls" Width="1.5" PointX="6" PointY="3.625" />
+        <EntityTypeShape EntityType="ERPLNDataModel.ERPLN_ServiceOrders" Width="1.5" PointX="2.5" PointY="0.875" />
+        <EntityTypeShape EntityType="ERPLNDataModel.Srv_ServiceorderRegels" Width="1.5" PointX="4.125" PointY="1" />
+        <EntityTypeShape EntityType="ERPLNDataModel.TypeCode" Width="1.5" PointX="7.125" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

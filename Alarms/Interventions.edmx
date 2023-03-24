@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InterventionsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="InterventionsModelStoreContainer">
+          <EntitySet Name="ActivityTypes" EntityType="InterventionsModel.Store.ActivityTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlarmActivities" EntityType="InterventionsModel.Store.AlarmActivities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlarmDepartmentMails" EntityType="InterventionsModel.Store.AlarmDepartmentMails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlarmHistory" EntityType="InterventionsModel.Store.AlarmHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlarmLevels" EntityType="InterventionsModel.Store.AlarmLevels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Alarms" EntityType="InterventionsModel.Store.Alarms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlarmSalesMail" EntityType="InterventionsModel.Store.AlarmSalesMail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AssignedCosts" EntityType="InterventionsModel.Store.AssignedCosts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CostCategories" EntityType="InterventionsModel.Store.CostCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CostDetails" EntityType="InterventionsModel.Store.CostDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="InterventionsModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Currency" EntityType="InterventionsModel.Store.Currency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DayDetails" EntityType="InterventionsModel.Store.DayDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HourGroups" EntityType="InterventionsModel.Store.HourGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IndividualAlarmMails" EntityType="InterventionsModel.Store.IndividualAlarmMails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Invoicing" EntityType="InterventionsModel.Store.Invoicing" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Machines" EntityType="InterventionsModel.Store.Machines" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentMethods" EntityType="InterventionsModel.Store.PaymentMethods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceOrder" EntityType="InterventionsModel.Store.ServiceOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceorderCalculateDetails" EntityType="InterventionsModel.Store.ServiceorderCalculateDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceReport" EntityType="InterventionsModel.Store.ServiceReport" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskGroups" EntityType="InterventionsModel.Store.TaskGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Traveling" EntityType="InterventionsModel.Store.Traveling" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TravelLocations" EntityType="InterventionsModel.Store.TravelLocations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TypeCode" EntityType="InterventionsModel.Store.TypeCode" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ActivityTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DetailOrder" Type="int" />
+          <Property Name="DetailEnglish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailDutch" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailFrench" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailGerman" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailItalian" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailPolish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailSlowak" Type="nvarchar" MaxLength="255" />
+          <Property Name="LocationFrom" Type="bit" Nullable="false" />
+          <Property Name="LocationTo" Type="bit" Nullable="false" />
+          <Property Name="LocationActivity" Type="bit" Nullable="false" />
+          <Property Name="SingleOrder" Type="bit" Nullable="false" />
+          <Property Name="MultipleOrder" Type="bit" Nullable="false" />
+          <Property Name="ValidWorkingHours" Type="bit" Nullable="false" />
+          <Property Name="ValidHours" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlarmActivities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SerialNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ActivityType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ActivityID" Type="int" Nullable="false" />
+          <Property Name="ActivityCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Warranty" Type="bit" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MachineType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Country" Type="nchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="AlarmDepartmentMails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalServiceManager" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalGeneralManager" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CompanyServiceManager" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CompanyLocalRepresentative" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CEO" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalSalesManager" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfAlarm" Type="datetime" Nullable="false" />
+          <Property Name="NumberOfPartsOrders" Type="int" Nullable="false" />
+          <Property Name="NumberOfInterventions" Type="int" Nullable="false" />
+          <Property Name="NumberOfCalls" Type="int" Nullable="false" />
+          <Property Name="AlarmLevel" Type="int" Nullable="false" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AlarmLevels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Warranty" Type="bit" Nullable="false" />
+          <Property Name="AlarmLevel" Type="int" Nullable="false" />
+          <Property Name="MonthsToEvaluate" Type="int" Nullable="false" />
+          <Property Name="PartsOrders" Type="int" Nullable="false" />
+          <Property Name="Interventions" Type="int" Nullable="false" />
+          <Property Name="Calls" Type="int" Nullable="false" />
+          <Property Name="AllConditionsShouldBeMet" Type="bit" Nullable="false" />
+          <Property Name="SimultanuousToBeConsideredAsOne" Type="bit" Nullable="false" />
+          <Property Name="IncludeIBS" Type="bit" Nullable="false" />
+          <Property Name="AllINterventions" Type="bit" Nullable="false" />
+          <Property Name="AllParts" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alarms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfAlarm" Type="datetime" Nullable="false" />
+          <Property Name="NumberOfPartsOrders" Type="int" Nullable="false" />
+          <Property Name="NumberOfInterventions" Type="int" Nullable="false" />
+          <Property Name="NumberOfCalls" Type="int" Nullable="false" />
+          <Property Name="AlarmLevel" Type="int" Nullable="false" />
+          <Property Name="MailsSent" Type="bit" Nullable="false" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AlarmSalesMail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LocalSalesMail" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AssignedCosts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="ImportIDString" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceOrderID" Type="int" Nullable="false" />
+          <Property Name="CostID" Type="int" Nullable="false" />
+          <Property Name="CostIDString" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoadPercentage" Type="float" Nullable="false" />
+          <Property Name="FullyAssigned" Type="bit" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="FSE" Type="int" />
+          <Property Name="IncludeExclude" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CostDetailsID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CostCategories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="DetailEnglish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailDutch" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailFrench" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailGerman" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailItalian" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailPolish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailSlowak" Type="nvarchar" MaxLength="255" />
+          <Property Name="CostAccount" Type="nvarchar" MaxLength="255" />
+          <Property Name="OnesServiceOrder" Type="bit" />
+          <Property Name="MultipleServiceOrder" Type="bit" />
+          <Property Name="FromToDates" Type="bit" />
+        </EntityType>
+        <EntityType Name="CostDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="ImportIDString" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostCategory" Type="int" Nullable="false" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="DateFrom" Type="date" />
+          <Property Name="DateTo" Type="date" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="Currency" Type="int" />
+          <Property Name="PaymentMethod" Type="int" />
+          <Property Name="TicketNumber" Type="int" />
+          <Property Name="EnvelopeNumber" Type="int" />
+          <Property Name="AllAssigned" Type="bit" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="FSE" Type="int" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Country2" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Country3" Type="nvarchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="SortOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="DayDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="ImportIDString" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfDay" Type="date" Nullable="false" />
+          <Property Name="StartTime" Type="nchar" MaxLength="5" />
+          <Property Name="StopTime" Type="nchar" MaxLength="5" />
+          <Property Name="ActivityType" Type="int" />
+          <Property Name="TravelFrom" Type="int" />
+          <Property Name="TravelTo" Type="int" />
+          <Property Name="ServiceOrder" Type="int" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Distance" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="FSE" Type="int" />
+          <Property Name="DayType" Type="int" />
+        </EntityType>
+        <EntityType Name="HourGroups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SrvCenter" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IndividualAlarmMails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Alarmlevel" Type="int" Nullable="false" />
+          <Property Name="Technology" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Invoicing">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DescriptionF" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DescriptionD" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DescriptionI" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Name="SerialNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SerialNumber2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomerNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="StrippitCustomerNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="CountryAbbreviation" Type="nchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="SerializedArticleGroup" Type="nchar" MaxLength="20" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="255" />
+          <Property Name="InstallationDate" Type="date" />
+        </EntityType>
+        <EntityType Name="PaymentMethods">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="DetailDutch" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailEnglish" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailFrench" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailGerman" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailItalian" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailPolish" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailSlowak" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SrvOrder" Type="int" />
+          <Property Name="Omschr20" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cluster" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr21" Type="nvarchar" MaxLength="50" />
+          <Property Name="Werknemer" Type="int" />
+          <Property Name="Naam1" Type="nvarchar" MaxLength="50" />
+          <Property Name="VerkopenAanRel" Type="int" />
+          <Property Name="Naam2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceArea" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Project" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres6" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkCenter" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contract" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr4" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderQuotation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr5" Type="nvarchar" MaxLength="50" />
+          <Property Name="SrvCenter" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr6" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoverageType" Type="int" />
+          <Property Name="Omschr7" Type="nvarchar" MaxLength="50" />
+          <Property Name="SrvType" Type="int" />
+          <Property Name="Omschr8" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderProcedure" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscountPolicy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscountFromPriceBooks" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActLineNr" Type="int" />
+          <Property Name="Omschr9" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefActivity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr10" Type="nvarchar" MaxLength="50" />
+          <Property Name="Item" Type="nvarchar" MaxLength="50" />
+          <Property Name="SerialNr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Duration" Type="float" />
+          <Property Name="Appointment" Type="nvarchar" MaxLength="50" />
+          <Property Name="EarliestStartTime" Type="date" />
+          <Property Name="PlannedStartTime" Type="date" />
+          <Property Name="OrderTxt" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActivityText" Type="nvarchar" MaxLength="50" />
+          <Property Name="CallText" Type="nvarchar" MaxLength="50" />
+          <Property Name="SolutionText" Type="nvarchar" MaxLength="50" />
+          <Property Name="Problem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Omschr22" Type="nvarchar" MaxLength="50" />
+          <Property Name="EindeGarantie" Type="date" />
+          <Property Name="ActivityTextDetail" Type="nvarchar(max)" />
+          <Property Name="CallTextDetail" Type="nvarchar(max)" />
+          <Property Name="SolutionTextDetail" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="Verwerking" Type="nvarchar" MaxLength="50" />
+          <Property Name="HandledBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProdDesc" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceorderCalculateDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Serviceorder" Type="int" Nullable="false" />
+          <Property Name="Invoicing" Type="int" Nullable="false" />
+          <Property Name="WhoToInvoice" Type="int" Nullable="false" />
+          <Property Name="HourGroup" Type="int" Nullable="false" />
+          <Property Name="TaskGroup" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Traveling" Type="int" Nullable="false" />
+          <Property Name="CalloutValue" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="CallOutText" Type="nvarchar" MaxLength="50" />
+          <Property Name="KmCharge" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="OtherText" Type="nchar" MaxLength="30" />
+          <Property Name="DoNotChangeAnymore" Type="bit" Nullable="false" />
+          <Property Name="NumberOfCallouts" Type="int" />
+          <Property Name="numberOfKm" Type="int" Nullable="false" />
+          <Property Name="TravelTime" Type="decimal" Nullable="false" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityType Name="ServiceReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="ImportIDString" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceOrder" Type="int" />
+          <Property Name="ProblemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SolutionCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProblemDescription" Type="nvarchar(max)" />
+          <Property Name="ActionUndertaken" Type="nvarchar(max)" />
+          <Property Name="CustomerInformed" Type="bit" Nullable="false" />
+          <Property Name="ProblemSolved" Type="bit" Nullable="false" />
+          <Property Name="ProblemNotSolved" Type="nvarchar(max)" />
+          <Property Name="SafetyNOK" Type="bit" Nullable="false" />
+          <Property Name="SafetyOK" Type="bit" Nullable="false" />
+          <Property Name="SafetyNOKDetails" Type="nvarchar(max)" />
+          <Property Name="Signed" Type="bit" Nullable="false" />
+          <Property Name="DateSigned" Type="date" />
+          <Property Name="SignedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Requests" Type="bit" Nullable="false" />
+          <Property Name="RequestDetails" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="TechReport" Type="nvarchar(max)" />
+          <Property Name="FSE" Type="int" />
+        </EntityType>
+        <EntityType Name="TaskGroups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SrvCenter" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Traveling">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Detail" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TravelLocations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DetailEnglish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailDutch" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailFrench" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailGerman" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailItalian" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailPolish" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetailSlowak" Type="nvarchar" MaxLength="255" />
+          <Property Name="ServiceOrder" Type="bit" />
+          <Property Name="StartEndLocation" Type="bit" />
+          <Property Name="ReduceTime" Type="int" />
+          <Property Name="AwayFromHome" Type="bit" />
+        </EntityType>
+        <EntityType Name="TypeCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeInt" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TypeOmschrijving" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingF" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingD" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeOmschrijvingI" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dekking" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodeDekking" Type="int" />
+          <Property Name="Groep" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warning" Type="bit" Nullable="false" />
+          <Property Name="Warranty" Type="bit" Nullable="false" />
+          <Property Name="IBS" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InterventionsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InterventionsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityTypes" EntityType="InterventionsModel.ActivityTypes" />
+          <EntitySet Name="ServiceOrder" EntityType="InterventionsModel.ServiceOrder" />
+          <EntitySet Name="AlarmActivities" EntityType="InterventionsModel.AlarmActivities" />
+          <EntitySet Name="Machines" EntityType="InterventionsModel.Machines" />
+          <EntitySet Name="AlarmLevels" EntityType="InterventionsModel.AlarmLevels" />
+          <EntitySet Name="AssignedCosts" EntityType="InterventionsModel.AssignedCosts" />
+          <EntitySet Name="CostCategories" EntityType="InterventionsModel.CostCategories" />
+          <EntitySet Name="CostDetails" EntityType="InterventionsModel.CostDetails" />
+          <EntitySet Name="Country" EntityType="InterventionsModel.Country" />
+          <EntitySet Name="Currency" EntityType="InterventionsModel.Currency" />
+          <EntitySet Name="PaymentMethods" EntityType="InterventionsModel.PaymentMethods" />
+          <EntitySet Name="DayDetails" EntityType="InterventionsModel.DayDetails" />
+          <EntitySet Name="TravelLocations" EntityType="InterventionsModel.TravelLocations" />
+          <EntitySet Name="HourGroups" EntityType="InterventionsModel.HourGroups" />
+          <EntitySet Name="Invoicing" EntityType="InterventionsModel.Invoicing" />
+          <EntitySet Name="ServiceorderCalculateDetails" EntityType="InterventionsModel.ServiceorderCalculateDetails" />
+          <EntitySet Name="TaskGroups" EntityType="InterventionsModel.TaskGroups" />
+          <EntitySet Name="Traveling" EntityType="InterventionsModel.Traveling" />
+          <EntitySet Name="ServiceReport" EntityType="InterventionsModel.ServiceReport" />
+          <EntitySet Name="TypeCode" EntityType="InterventionsModel.TypeCode" />
+          <EntitySet Name="AlarmDepartmentMails" EntityType="InterventionsModel.AlarmDepartmentMails" />
+          <EntitySet Name="AlarmSalesMail" EntityType="InterventionsModel.AlarmSalesMail" />
+          <EntitySet Name="AlarmHistory" EntityType="InterventionsModel.AlarmHistory" />
+          <EntitySet Name="Alarms" EntityType="InterventionsModel.Alarms" />
+          <EntitySet Name="IndividualAlarmMails" EntityType="InterventionsModel.IndividualAlarmMails" />
+        </EntityContainer>
+        <EntityType Name="ActivityTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DetailOrder" Type="Int32" />
+          <Property Name="DetailEnglish" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailDutch" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailFrench" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailGerman" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailItalian" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailPolish" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DetailSlowak" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LocationFrom" Type="Boolean" Nullable="false" />
+          <Property Name="LocationTo" Type="Boolean" Nullable="false" />
+          <Property Name="LocationActivity" Type="Boolean" Nullable="false" />
+          <Property Name="SingleOrder" Type="Boolean" Nullable="false" />
+          <Property Name="MultipleOrder" Type="Boolean" Nullable="false" />
+          <Property Name="ValidWorkingHours" Type="Boolean" Nullable="false" />
+          <Property Name="ValidHours" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SrvOrder" Type="Int32" />
+          <Property Name="Omschr20" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cluster" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr21" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Werknemer" Type="Int32" />
+          <Property Name="Naam1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="VerkopenAanRel" Type="Int32" />
+          <Property Name="Naam2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ServiceArea" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Project" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WorkCenter" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contract" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OrderQuotation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SrvCenter" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CoverageType" Type="Int32" />
+          <Property Name="Omschr7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SrvType" Type="Int32" />
+          <Property Name="Omschr8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OrderProcedure" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DiscountPolicy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DiscountFromPriceBooks" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ActLineNr" Type="Int32" />
+          <Property Name="Omschr9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RefActivity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Item" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SerialNr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Duration" Type="Double" />
+          <Property Name="Appointment" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EarliestStartTime" Type="DateTime" Precision="0" />
+          <Property Name="PlannedStartTime" Type="DateTime" Precision="0" />
+          <Property Name="OrderTxt" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ActivityText" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CallText" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SolutionText" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Problem" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Omschr22" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EindeGarantie" Type="DateTime" Precision="0" />
+          <Property Name="ActivityTextDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CallTextDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SolutionTextDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Verwerking" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="HandledBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProdDesc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AlarmActivities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ActivityType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ActivityID" Nullable="false" />
+          <Property Type="String" Name="ActivityCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Warranty" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MachineType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="SerialNumber" />
+          </Key>
+          <Property Type="String" Name="SerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SerialNumber2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Customer" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StrippitCustomerNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryAbbreviation" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SerializedArticleGroup" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Technology" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="InstallationDate" Precision="0" />
+        </EntityType>
+        <EntityType Name="AlarmLevels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="Warranty" Nullable="false" />
+          <Property Type="Int32" Name="AlarmLevel" Nullable="false" />
+          <Property Type="Int32" Name="MonthsToEvaluate" Nullable="false" />
+          <Property Type="Int32" Name="PartsOrders" Nullable="false" />
+          <Property Type="Int32" Name="Interventions" Nullable="false" />
+          <Property Type="Int32" Name="Calls" Nullable="false" />
+          <Property Type="Boolean" Name="AllConditionsShouldBeMet" Nullable="false" />
+          <Property Type="Boolean" Name="SimultanuousToBeConsideredAsOne" Nullable="false" />
+          <Property Type="Boolean" Name="IncludeIBS" Nullable="false" />
+          <Property Type="Boolean" Name="AllINterventions" Nullable="false" />
+          <Property Type="Boolean" Name="AllParts" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssignedCosts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ImportID" Nullable="false" />
+          <Property Type="String" Name="ImportIDString" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ServiceOrderID" Nullable="false" />
+          <Property Type="Int32" Name="CostID" Nullable="false" />
+          <Property Type="String" Name="CostIDString" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="LoadPercentage" Nullable="false" />
+          <Property Type="Boolean" Name="FullyAssigned" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="FSE" />
+          <Property Type="String" Name="IncludeExclude" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CostDetailsID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CostCategories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SortOrder" />
+          <Property Type="String" Name="DetailEnglish" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailDutch" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailFrench" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailGerman" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailItalian" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailPolish" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailSlowak" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CostAccount" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="OnesServiceOrder" />
+          <Property Type="Boolean" Name="MultipleServiceOrder" />
+          <Property Type="Boolean" Name="FromToDates" />
+        </EntityType>
+        <EntityType Name="CostDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ImportID" Nullable="false" />
+          <Property Type="String" Name="ImportIDString" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CostCategory" Nullable="false" />
+          <Property Type="String" Name="Detail" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateFrom" Precision="0" />
+          <Property Type="DateTime" Name="DateTo" Precision="0" />
+          <Property Type="Decimal" Name="Amount" Precision="10" Scale="3" />
+          <Property Type="Int32" Name="Currency" />
+          <Property Type="Int32" Name="PaymentMethod" />
+          <Property Type="Int32" Name="TicketNumber" />
+          <Property Type="Int32" Name="EnvelopeNumber" />
+          <Property Type="Boolean" Name="AllAssigned" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="FSE" />
+          <Property Type="String" Name="Department" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Country1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country2" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country3" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Currency1" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SortOrder" />
+        </EntityType>
+        <EntityType Name="PaymentMethods">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SortOrder" />
+          <Property Type="String" Name="DetailDutch" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailEnglish" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailFrench" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailGerman" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailItalian" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailPolish" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailSlowak" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DayDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ImportID" Nullable="false" />
+          <Property Type="String" Name="ImportIDString" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfDay" Nullable="false" Precision="0" />
+          <Property Type="String" Name="StartTime" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="StopTime" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="ActivityType" />
+          <Property Type="Int32" Name="TravelFrom" />
+          <Property Type="Int32" Name="TravelTo" />
+          <Property Type="Int32" Name="ServiceOrder" />
+          <Property Type="Int32" Name="Country" />
+          <Property Type="Int32" Name="Distance" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="FSE" />
+          <Property Type="Int32" Name="DayType" />
+        </EntityType>
+        <EntityType Name="TravelLocations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DetailEnglish" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailDutch" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailFrench" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailGerman" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailItalian" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailPolish" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DetailSlowak" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ServiceOrder" />
+          <Property Type="Boolean" Name="StartEndLocation" />
+          <Property Type="Int32" Name="ReduceTime" />
+          <Property Type="Boolean" Name="AwayFromHome" />
+        </EntityType>
+        <EntityType Name="HourGroups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SrvCenter" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Invoicing">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescriptionF" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescriptionD" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DescriptionI" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceorderCalculateDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Serviceorder" Nullable="false" />
+          <Property Type="Int32" Name="Invoicing" Nullable="false" />
+          <Property Type="Int32" Name="WhoToInvoice" Nullable="false" />
+          <Property Type="Int32" Name="HourGroup" Nullable="false" />
+          <Property Type="Int32" Name="TaskGroup" Nullable="false" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Traveling" Nullable="false" />
+          <Property Type="Decimal" Name="CalloutValue" Precision="12" Scale="3" />
+          <Property Type="String" Name="CallOutText" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="KmCharge" Precision="12" Scale="3" />
+          <Property Type="String" Name="OtherText" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="DoNotChangeAnymore" Nullable="false" />
+          <Property Type="Int32" Name="NumberOfCallouts" />
+          <Property Type="Int32" Name="numberOfKm" Nullable="false" />
+          <Property Type="Decimal" Name="TravelTime" Nullable="false" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityType Name="TaskGroups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SrvCenter" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Traveling">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ImportID" Nullable="false" />
+          <Property Type="String" Name="ImportIDString" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ServiceOrder" />
+          <Property Type="String" Name="ProblemCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SolutionCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProblemDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ActionUndertaken" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="CustomerInformed" Nullable="false" />
+          <Property Type="Boolean" Name="ProblemSolved" Nullable="false" />
+          <Property Type="String" Name="ProblemNotSolved" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="SafetyNOK" Nullable="false" />
+          <Property Type="Boolean" Name="SafetyOK" Nullable="false" />
+          <Property Type="String" Name="SafetyNOKDetails" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Signed" Nullable="false" />
+          <Property Type="DateTime" Name="DateSigned" Precision="0" />
+          <Property Type="String" Name="SignedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Requests" Nullable="false" />
+          <Property Type="String" Name="RequestDetails" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="String" Name="TechReport" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FSE" />
+        </EntityType>
+        <EntityType Name="TypeCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TypeInt" Nullable="false" />
+          <Property Type="String" Name="Type" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijving" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingF" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingD" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypeOmschrijvingI" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dekking" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CodeDekking" />
+          <Property Type="String" Name="Groep" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Warning" Nullable="false" />
+          <Property Type="Boolean" Name="Warranty" Nullable="false" />
+          <Property Type="Boolean" Name="IBS" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlarmDepartmentMails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalServiceManager" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalGeneralManager" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CompanyServiceManager" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CompanyLocalRepresentative" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CEO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalSalesManager" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AlarmSalesMail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocalSalesMail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfAlarm" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="NumberOfPartsOrders" Nullable="false" />
+          <Property Type="Int32" Name="NumberOfInterventions" Nullable="false" />
+          <Property Type="Int32" Name="NumberOfCalls" Nullable="false" />
+          <Property Type="Int32" Name="AlarmLevel" Nullable="false" />
+          <Property Type="String" Name="Technology" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Alarms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfAlarm" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="NumberOfPartsOrders" Nullable="false" />
+          <Property Type="Int32" Name="NumberOfInterventions" Nullable="false" />
+          <Property Type="Int32" Name="NumberOfCalls" Nullable="false" />
+          <Property Type="Int32" Name="AlarmLevel" Nullable="false" />
+          <Property Type="Boolean" Name="MailsSent" Nullable="false" />
+          <Property Type="String" Name="Technology" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IndividualAlarmMails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Alarmlevel" Nullable="false" />
+          <Property Type="String" Name="Technology" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InterventionsModelStoreContainer" CdmEntityContainer="InterventionsEntities">
+          <EntitySetMapping Name="ActivityTypes">
+            <EntityTypeMapping TypeName="InterventionsModel.ActivityTypes">
+              <MappingFragment StoreEntitySet="ActivityTypes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DetailOrder" ColumnName="DetailOrder" />
+                <ScalarProperty Name="DetailEnglish" ColumnName="DetailEnglish" />
+                <ScalarProperty Name="DetailDutch" ColumnName="DetailDutch" />
+                <ScalarProperty Name="DetailFrench" ColumnName="DetailFrench" />
+                <ScalarProperty Name="DetailGerman" ColumnName="DetailGerman" />
+                <ScalarProperty Name="DetailItalian" ColumnName="DetailItalian" />
+                <ScalarProperty Name="DetailPolish" ColumnName="DetailPolish" />
+                <ScalarProperty Name="DetailSlowak" ColumnName="DetailSlowak" />
+                <ScalarProperty Name="LocationFrom" ColumnName="LocationFrom" />
+                <ScalarProperty Name="LocationTo" ColumnName="LocationTo" />
+                <ScalarProperty Name="LocationActivity" ColumnName="LocationActivity" />
+                <ScalarProperty Name="SingleOrder" ColumnName="SingleOrder" />
+                <ScalarProperty Name="MultipleOrder" ColumnName="MultipleOrder" />
+                <ScalarProperty Name="ValidWorkingHours" ColumnName="ValidWorkingHours" />
+                <ScalarProperty Name="ValidHours" ColumnName="ValidHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceOrder">
+            <EntityTypeMapping TypeName="InterventionsModel.ServiceOrder">
+              <MappingFragment StoreEntitySet="ServiceOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SrvOrder" ColumnName="SrvOrder" />
+                <ScalarProperty Name="Omschr20" ColumnName="Omschr20" />
+                <ScalarProperty Name="Cluster" ColumnName="Cluster" />
+                <ScalarProperty Name="Omschr21" ColumnName="Omschr21" />
+                <ScalarProperty Name="Werknemer" ColumnName="Werknemer" />
+                <ScalarProperty Name="Naam1" ColumnName="Naam1" />
+                <ScalarProperty Name="VerkopenAanRel" ColumnName="VerkopenAanRel" />
+                <ScalarProperty Name="Naam2" ColumnName="Naam2" />
+                <ScalarProperty Name="ServiceArea" ColumnName="ServiceArea" />
+                <ScalarProperty Name="Omschr1" ColumnName="Omschr1" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Omschr2" ColumnName="Omschr2" />
+                <ScalarProperty Name="Adres1" ColumnName="Adres1" />
+                <ScalarProperty Name="Adres2" ColumnName="Adres2" />
+                <ScalarProperty Name="Adres3" ColumnName="Adres3" />
+                <ScalarProperty Name="Adres4" ColumnName="Adres4" />
+                <ScalarProperty Name="Adres5" ColumnName="Adres5" />
+                <ScalarProperty Name="Adres6" ColumnName="Adres6" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="WorkCenter" ColumnName="WorkCenter" />
+                <ScalarProperty Name="Omschr3" ColumnName="Omschr3" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Omschr4" ColumnName="Omschr4" />
+                <ScalarProperty Name="OrderQuotation" ColumnName="OrderQuotation" />
+                <ScalarProperty Name="Omschr5" ColumnName="Omschr5" />
+                <ScalarProperty Name="SrvCenter" ColumnName="SrvCenter" />
+                <ScalarProperty Name="Omschr6" ColumnName="Omschr6" />
+                <ScalarProperty Name="CoverageType" ColumnName="CoverageType" />
+                <ScalarProperty Name="Omschr7" ColumnName="Omschr7" />
+                <ScalarProperty Name="SrvType" ColumnName="SrvType" />
+                <ScalarProperty Name="Omschr8" ColumnName="Omschr8" />
+                <ScalarProperty Name="OrderProcedure" ColumnName="OrderProcedure" />
+                <ScalarProperty Name="DiscountPolicy" ColumnName="DiscountPolicy" />
+                <ScalarProperty Name="DiscountFromPriceBooks" ColumnName="DiscountFromPriceBooks" />
+                <ScalarProperty Name="ActLineNr" ColumnName="ActLineNr" />
+                <ScalarProperty Name="Omschr9" ColumnName="Omschr9" />
+                <ScalarProperty Name="RefActivity" ColumnName="RefActivity" />
+                <ScalarProperty Name="Omschr10" ColumnName="Omschr10" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="SerialNr" ColumnName="SerialNr" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Appointment" ColumnName="Appointment" />
+                <ScalarProperty Name="EarliestStartTime" ColumnName="EarliestStartTime" />
+                <ScalarProperty Name="PlannedStartTime" ColumnName="PlannedStartTime" />
+                <ScalarProperty Name="OrderTxt" ColumnName="OrderTxt" />
+                <ScalarProperty Name="ActivityText" ColumnName="ActivityText" />
+                <ScalarProperty Name="CallText" ColumnName="CallText" />
+                <ScalarProperty Name="SolutionText" ColumnName="SolutionText" />
+                <ScalarProperty Name="Problem" ColumnName="Problem" />
+                <ScalarProperty Name="Omschr22" ColumnName="Omschr22" />
+                <ScalarProperty Name="EindeGarantie" ColumnName="EindeGarantie" />
+                <ScalarProperty Name="ActivityTextDetail" ColumnName="ActivityTextDetail" />
+                <ScalarProperty Name="CallTextDetail" ColumnName="CallTextDetail" />
+                <ScalarProperty Name="SolutionTextDetail" ColumnName="SolutionTextDetail" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Verwerking" ColumnName="Verwerking" />
+                <ScalarProperty Name="HandledBy" ColumnName="HandledBy" />
+                <ScalarProperty Name="ProdDesc" ColumnName="ProdDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmActivities">
+            <EntityTypeMapping TypeName="InterventionsModel.AlarmActivities">
+              <MappingFragment StoreEntitySet="AlarmActivities">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="MachineType" ColumnName="MachineType" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="ActivityCode" ColumnName="ActivityCode" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="InterventionsModel.Machines">
+              <MappingFragment StoreEntitySet="Machines">
+                <ScalarProperty Name="InstallationDate" ColumnName="InstallationDate" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="SerializedArticleGroup" ColumnName="SerializedArticleGroup" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CountryAbbreviation" ColumnName="CountryAbbreviation" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="StrippitCustomerNumber" ColumnName="StrippitCustomerNumber" />
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="SerialNumber2" ColumnName="SerialNumber2" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmLevels">
+            <EntityTypeMapping TypeName="InterventionsModel.AlarmLevels">
+              <MappingFragment StoreEntitySet="AlarmLevels">
+                <ScalarProperty Name="AllParts" ColumnName="AllParts" />
+                <ScalarProperty Name="AllINterventions" ColumnName="AllINterventions" />
+                <ScalarProperty Name="IncludeIBS" ColumnName="IncludeIBS" />
+                <ScalarProperty Name="SimultanuousToBeConsideredAsOne" ColumnName="SimultanuousToBeConsideredAsOne" />
+                <ScalarProperty Name="AllConditionsShouldBeMet" ColumnName="AllConditionsShouldBeMet" />
+                <ScalarProperty Name="Calls" ColumnName="Calls" />
+                <ScalarProperty Name="Interventions" ColumnName="Interventions" />
+                <ScalarProperty Name="PartsOrders" ColumnName="PartsOrders" />
+                <ScalarProperty Name="MonthsToEvaluate" ColumnName="MonthsToEvaluate" />
+                <ScalarProperty Name="AlarmLevel" ColumnName="AlarmLevel" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssignedCosts">
+            <EntityTypeMapping TypeName="InterventionsModel.AssignedCosts">
+              <MappingFragment StoreEntitySet="AssignedCosts">
+                <ScalarProperty Name="CostDetailsID" ColumnName="CostDetailsID" />
+                <ScalarProperty Name="IncludeExclude" ColumnName="IncludeExclude" />
+                <ScalarProperty Name="FSE" ColumnName="FSE" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="FullyAssigned" ColumnName="FullyAssigned" />
+                <ScalarProperty Name="LoadPercentage" ColumnName="LoadPercentage" />
+                <ScalarProperty Name="CostIDString" ColumnName="CostIDString" />
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+                <ScalarProperty Name="ServiceOrderID" ColumnName="ServiceOrderID" />
+                <ScalarProperty Name="ImportIDString" ColumnName="ImportIDString" />
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostCategories">
+            <EntityTypeMapping TypeName="InterventionsModel.CostCategories">
+              <MappingFragment StoreEntitySet="CostCategories">
+                <ScalarProperty Name="FromToDates" ColumnName="FromToDates" />
+                <ScalarProperty Name="MultipleServiceOrder" ColumnName="MultipleServiceOrder" />
+                <ScalarProperty Name="OnesServiceOrder" ColumnName="OnesServiceOrder" />
+                <ScalarProperty Name="CostAccount" ColumnName="CostAccount" />
+                <ScalarProperty Name="DetailSlowak" ColumnName="DetailSlowak" />
+                <ScalarProperty Name="DetailPolish" ColumnName="DetailPolish" />
+                <ScalarProperty Name="DetailItalian" ColumnName="DetailItalian" />
+                <ScalarProperty Name="DetailGerman" ColumnName="DetailGerman" />
+                <ScalarProperty Name="DetailFrench" ColumnName="DetailFrench" />
+                <ScalarProperty Name="DetailDutch" ColumnName="DetailDutch" />
+                <ScalarProperty Name="DetailEnglish" ColumnName="DetailEnglish" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostDetails">
+            <EntityTypeMapping TypeName="InterventionsModel.CostDetails">
+              <MappingFragment StoreEntitySet="CostDetails">
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="FSE" ColumnName="FSE" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="AllAssigned" ColumnName="AllAssigned" />
+                <ScalarProperty Name="EnvelopeNumber" ColumnName="EnvelopeNumber" />
+                <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="CostCategory" ColumnName="CostCategory" />
+                <ScalarProperty Name="ImportIDString" ColumnName="ImportIDString" />
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="InterventionsModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Country3" ColumnName="Country3" />
+                <ScalarProperty Name="Country2" ColumnName="Country2" />
+                <ScalarProperty Name="Country1" ColumnName="Country" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currency">
+            <EntityTypeMapping TypeName="InterventionsModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Currency1" ColumnName="Currency" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="InterventionsModel.PaymentMethods">
+              <MappingFragment StoreEntitySet="PaymentMethods">
+                <ScalarProperty Name="DetailSlowak" ColumnName="DetailSlowak" />
+                <ScalarProperty Name="DetailPolish" ColumnName="DetailPolish" />
+                <ScalarProperty Name="DetailItalian" ColumnName="DetailItalian" />
+                <ScalarProperty Name="DetailGerman" ColumnName="DetailGerman" />
+                <ScalarProperty Name="DetailFrench" ColumnName="DetailFrench" />
+                <ScalarProperty Name="DetailEnglish" ColumnName="DetailEnglish" />
+                <ScalarProperty Name="DetailDutch" ColumnName="DetailDutch" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DayDetails">
+            <EntityTypeMapping TypeName="InterventionsModel.DayDetails">
+              <MappingFragment StoreEntitySet="DayDetails">
+                <ScalarProperty Name="DayType" ColumnName="DayType" />
+                <ScalarProperty Name="FSE" ColumnName="FSE" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ServiceOrder" ColumnName="ServiceOrder" />
+                <ScalarProperty Name="TravelTo" ColumnName="TravelTo" />
+                <ScalarProperty Name="TravelFrom" ColumnName="TravelFrom" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="StopTime" ColumnName="StopTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="DateOfDay" ColumnName="DateOfDay" />
+                <ScalarProperty Name="ImportIDString" ColumnName="ImportIDString" />
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TravelLocations">
+            <EntityTypeMapping TypeName="InterventionsModel.TravelLocations">
+              <MappingFragment StoreEntitySet="TravelLocations">
+                <ScalarProperty Name="AwayFromHome" ColumnName="AwayFromHome" />
+                <ScalarProperty Name="ReduceTime" ColumnName="ReduceTime" />
+                <ScalarProperty Name="StartEndLocation" ColumnName="StartEndLocation" />
+                <ScalarProperty Name="ServiceOrder" ColumnName="ServiceOrder" />
+                <ScalarProperty Name="DetailSlowak" ColumnName="DetailSlowak" />
+                <ScalarProperty Name="DetailPolish" ColumnName="DetailPolish" />
+                <ScalarProperty Name="DetailItalian" ColumnName="DetailItalian" />
+                <ScalarProperty Name="DetailGerman" ColumnName="DetailGerman" />
+                <ScalarProperty Name="DetailFrench" ColumnName="DetailFrench" />
+                <ScalarProperty Name="DetailDutch" ColumnName="DetailDutch" />
+                <ScalarProperty Name="DetailEnglish" ColumnName="DetailEnglish" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HourGroups">
+            <EntityTypeMapping TypeName="InterventionsModel.HourGroups">
+              <MappingFragment StoreEntitySet="HourGroups">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SrvCenter" ColumnName="SrvCenter" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoicing">
+            <EntityTypeMapping TypeName="InterventionsModel.Invoicing">
+              <MappingFragment StoreEntitySet="Invoicing">
+                <ScalarProperty Name="DescriptionI" ColumnName="DescriptionI" />
+                <ScalarProperty Name="DescriptionD" ColumnName="DescriptionD" />
+                <ScalarProperty Name="DescriptionF" ColumnName="DescriptionF" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceorderCalculateDetails">
+            <EntityTypeMapping TypeName="InterventionsModel.ServiceorderCalculateDetails">
+              <MappingFragment StoreEntitySet="ServiceorderCalculateDetails">
+                <ScalarProperty Name="TravelTime" ColumnName="TravelTime" />
+                <ScalarProperty Name="numberOfKm" ColumnName="numberOfKm" />
+                <ScalarProperty Name="NumberOfCallouts" ColumnName="NumberOfCallouts" />
+                <ScalarProperty Name="DoNotChangeAnymore" ColumnName="DoNotChangeAnymore" />
+                <ScalarProperty Name="OtherText" ColumnName="OtherText" />
+                <ScalarProperty Name="KmCharge" ColumnName="KmCharge" />
+                <ScalarProperty Name="CallOutText" ColumnName="CallOutText" />
+                <ScalarProperty Name="CalloutValue" ColumnName="CalloutValue" />
+                <ScalarProperty Name="Traveling" ColumnName="Traveling" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TaskGroup" ColumnName="TaskGroup" />
+                <ScalarProperty Name="HourGroup" ColumnName="HourGroup" />
+                <ScalarProperty Name="WhoToInvoice" ColumnName="WhoToInvoice" />
+                <ScalarProperty Name="Invoicing" ColumnName="Invoicing" />
+                <ScalarProperty Name="Serviceorder" ColumnName="Serviceorder" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskGroups">
+            <EntityTypeMapping TypeName="InterventionsModel.TaskGroups">
+              <MappingFragment StoreEntitySet="TaskGroups">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SrvCenter" ColumnName="SrvCenter" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traveling">
+            <EntityTypeMapping TypeName="InterventionsModel.Traveling">
+              <MappingFragment StoreEntitySet="Traveling">
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceReport">
+            <EntityTypeMapping TypeName="InterventionsModel.ServiceReport">
+              <MappingFragment StoreEntitySet="ServiceReport">
+                <ScalarProperty Name="FSE" ColumnName="FSE" />
+                <ScalarProperty Name="TechReport" ColumnName="TechReport" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="RequestDetails" ColumnName="RequestDetails" />
+                <ScalarProperty Name="Requests" ColumnName="Requests" />
+                <ScalarProperty Name="SignedBy" ColumnName="SignedBy" />
+                <ScalarProperty Name="DateSigned" ColumnName="DateSigned" />
+                <ScalarProperty Name="Signed" ColumnName="Signed" />
+                <ScalarProperty Name="SafetyNOKDetails" ColumnName="SafetyNOKDetails" />
+                <ScalarProperty Name="SafetyOK" ColumnName="SafetyOK" />
+                <ScalarProperty Name="SafetyNOK" ColumnName="SafetyNOK" />
+                <ScalarProperty Name="ProblemNotSolved" ColumnName="ProblemNotSolved" />
+                <ScalarProperty Name="ProblemSolved" ColumnName="ProblemSolved" />
+                <ScalarProperty Name="CustomerInformed" ColumnName="CustomerInformed" />
+                <ScalarProperty Name="ActionUndertaken" ColumnName="ActionUndertaken" />
+                <ScalarProperty Name="ProblemDescription" ColumnName="ProblemDescription" />
+                <ScalarProperty Name="SolutionCode" ColumnName="SolutionCode" />
+                <ScalarProperty Name="ProblemCode" ColumnName="ProblemCode" />
+                <ScalarProperty Name="ServiceOrder" ColumnName="ServiceOrder" />
+                <ScalarProperty Name="ImportIDString" ColumnName="ImportIDString" />
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeCode">
+            <EntityTypeMapping TypeName="InterventionsModel.TypeCode">
+              <MappingFragment StoreEntitySet="TypeCode">
+                <ScalarProperty Name="IBS" ColumnName="IBS" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Warning" ColumnName="Warning" />
+                <ScalarProperty Name="Groep" ColumnName="Groep" />
+                <ScalarProperty Name="CodeDekking" ColumnName="CodeDekking" />
+                <ScalarProperty Name="Dekking" ColumnName="Dekking" />
+                <ScalarProperty Name="TypeOmschrijvingI" ColumnName="TypeOmschrijvingI" />
+                <ScalarProperty Name="TypeOmschrijvingD" ColumnName="TypeOmschrijvingD" />
+                <ScalarProperty Name="TypeOmschrijvingF" ColumnName="TypeOmschrijvingF" />
+                <ScalarProperty Name="TypeOmschrijving" ColumnName="TypeOmschrijving" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TypeInt" ColumnName="TypeInt" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmDepartmentMails">
+            <EntityTypeMapping TypeName="InterventionsModel.AlarmDepartmentMails">
+              <MappingFragment StoreEntitySet="AlarmDepartmentMails">
+                <ScalarProperty Name="LocalSalesManager" ColumnName="LocalSalesManager" />
+                <ScalarProperty Name="CEO" ColumnName="CEO" />
+                <ScalarProperty Name="CompanyLocalRepresentative" ColumnName="CompanyLocalRepresentative" />
+                <ScalarProperty Name="CompanyServiceManager" ColumnName="CompanyServiceManager" />
+                <ScalarProperty Name="LocalGeneralManager" ColumnName="LocalGeneralManager" />
+                <ScalarProperty Name="LocalServiceManager" ColumnName="LocalServiceManager" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmSalesMail">
+            <EntityTypeMapping TypeName="InterventionsModel.AlarmSalesMail">
+              <MappingFragment StoreEntitySet="AlarmSalesMail">
+                <ScalarProperty Name="LocalSalesMail" ColumnName="LocalSalesMail" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmHistory">
+            <EntityTypeMapping TypeName="InterventionsModel.AlarmHistory">
+              <MappingFragment StoreEntitySet="AlarmHistory">
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="AlarmLevel" ColumnName="AlarmLevel" />
+                <ScalarProperty Name="NumberOfCalls" ColumnName="NumberOfCalls" />
+                <ScalarProperty Name="NumberOfInterventions" ColumnName="NumberOfInterventions" />
+                <ScalarProperty Name="NumberOfPartsOrders" ColumnName="NumberOfPartsOrders" />
+                <ScalarProperty Name="DateOfAlarm" ColumnName="DateOfAlarm" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alarms">
+            <EntityTypeMapping TypeName="InterventionsModel.Alarms">
+              <MappingFragment StoreEntitySet="Alarms">
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="MailsSent" ColumnName="MailsSent" />
+                <ScalarProperty Name="AlarmLevel" ColumnName="AlarmLevel" />
+                <ScalarProperty Name="NumberOfCalls" ColumnName="NumberOfCalls" />
+                <ScalarProperty Name="NumberOfInterventions" ColumnName="NumberOfInterventions" />
+                <ScalarProperty Name="NumberOfPartsOrders" ColumnName="NumberOfPartsOrders" />
+                <ScalarProperty Name="DateOfAlarm" ColumnName="DateOfAlarm" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualAlarmMails">
+            <EntityTypeMapping TypeName="InterventionsModel.IndividualAlarmMails">
+              <MappingFragment StoreEntitySet="IndividualAlarmMails">
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Alarmlevel" ColumnName="Alarmlevel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

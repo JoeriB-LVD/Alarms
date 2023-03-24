@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFE82AEA-E805-47BE-AF44-E18B2352AF0F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alarms</RootNamespace>
+    <AssemblyName>Alarms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LVDMail">
+      <HintPath>..\..\LVDMail\LVDMail\bin\Release\LVDMail.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel">
+      <HintPath>..\packages\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering">
+      <HintPath>..\packages\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering">
+      <HintPath>..\packages\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\packages\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\packages\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityTypes.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmActivities.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmDepartmentMails.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmHistory.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmLevels.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Alarms.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmSalesMail.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignedCosts.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCategories.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostDetails.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DayDetails.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERPLNData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPLNData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERPLNData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPLNData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERPLNData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPLNData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPLN_ServiceOrders.cs">
+      <DependentUpon>ERPLNData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HourGroups.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IndividualAlarmMails.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interventions.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interventions.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interventions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interventions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interventions.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoicing.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Machines.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethods.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceOrder.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceorderCalculateDetails.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceReport.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Srv_Calls.cs">
+      <DependentUpon>ERPLNData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Srv_ServiceorderRegels.cs">
+      <DependentUpon>ERPLNData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Srv_ServiceOrders.cs">
+      <DependentUpon>ERPLNData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskGroups.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Traveling.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TravelLocations.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeCode.cs">
+      <DependentUpon>Interventions.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ERPLNData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERPLNData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ERPLNData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERPLNData.edmx</DependentUpon>
+      <LastGenOutput>ERPLNData.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ERPLNData.edmx.diagram">
+      <DependentUpon>ERPLNData.edmx</DependentUpon>
+    </None>
+    <None Include="ERPLNData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERPLNData.edmx</DependentUpon>
+      <LastGenOutput>ERPLNData.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Interventions.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Interventions.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Interventions.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Interventions.edmx</DependentUpon>
+      <LastGenOutput>Interventions.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Interventions.edmx.diagram">
+      <DependentUpon>Interventions.edmx</DependentUpon>
+    </None>
+    <None Include="Interventions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Interventions.edmx</DependentUpon>
+      <LastGenOutput>Interventions.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
